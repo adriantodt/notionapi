@@ -6,6 +6,8 @@ import net.adriantodt.notionapi.model.property.PropertyType
 import net.adriantodt.notionapi.model.property.RichTextValue
 import net.adriantodt.notionapi.model.richtext.Text
 import net.adriantodt.notionapi.tests.base.ModelTests
+import net.adriantodt.notionapi.tests.base.assertNotionObject
+import net.adriantodt.notionapi.tests.base.assertPlainText
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
@@ -31,7 +33,7 @@ class PageParsing {
     }
 
     private companion object : ModelTests() {
-        object Page1 : Snippet("/snippets/page/unit/1.json"), NotionObjectDeclaration {
+        object Page1 : Snippet("/input/page/unit/1.json"), NotionObjectDeclaration {
             override val id = "b58db8ca-35a4-40c2-83f7-e53ee672f3bf"
             override val createdTime = "2021-06-25T00:19:00.000Z"
             override val lastEditedTime = "2021-06-25T00:39:00.000Z"

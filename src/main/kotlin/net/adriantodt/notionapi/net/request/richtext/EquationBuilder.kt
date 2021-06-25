@@ -1,8 +1,10 @@
 package net.adriantodt.notionapi.net.request.richtext
 
+import net.adriantodt.notionapi.net.request.annotation.NotionDsl
 import net.adriantodt.notionapi.utils.jsonObjectOf
 
-class FormulaBuilder : RichTextBuilder() {
+@NotionDsl
+class EquationBuilder : RichTextBuilder() {
     /**
      * The LaTeX string representing this inline equation.
      */
@@ -13,6 +15,7 @@ class FormulaBuilder : RichTextBuilder() {
     }
 
     override fun toJson() = super.toJson().apply {
+        put("type", "equation")
         put("equation", jsonObjectOf("expression" to expressionBuilder.toString()))
     }
 }

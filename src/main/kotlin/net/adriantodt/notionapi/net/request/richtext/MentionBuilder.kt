@@ -4,6 +4,7 @@ import com.grack.nanojson.JsonObject
 import net.adriantodt.notionapi.model.database.Database
 import net.adriantodt.notionapi.model.page.Page
 import net.adriantodt.notionapi.model.user.User
+import net.adriantodt.notionapi.net.request.annotation.NotionDsl
 import net.adriantodt.notionapi.utils.buildJsonObject
 import net.adriantodt.notionapi.utils.jsonObjectOf
 import java.time.LocalDate
@@ -11,6 +12,7 @@ import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter.ISO_LOCAL_DATE
 import java.time.format.DateTimeFormatter.ISO_OFFSET_DATE_TIME
 
+@NotionDsl
 class MentionBuilder : RichTextBuilder() {
     var data: MentionData? = null
 
@@ -33,10 +35,12 @@ class MentionBuilder : RichTextBuilder() {
         start.format(ISO_OFFSET_DATE_TIME),
         end?.format(ISO_OFFSET_DATE_TIME)
     )
+
     fun date(start: LocalDate, end: LocalDate? = null) = date(
         start.format(ISO_LOCAL_DATE),
         end?.format(ISO_LOCAL_DATE)
     )
+
     fun date(start: String, end: String? = null) {
         data = DateMention(start, end)
     }
@@ -59,7 +63,7 @@ class MentionBuilder : RichTextBuilder() {
     }
 
     data class UserMention(val id: String) : MentionData() {
-        override fun toJson() = jsonObjectOf("type" to "user", "user" to jsonObjectOf("id" to id))
+        override fun toJson() = jsonObjectOf("type" to "user", "user" to jsonObjectOf("object" to "user", "id" to id))
     }
 
     data class DateMention(val start: String, val end: String?) : MentionData() {

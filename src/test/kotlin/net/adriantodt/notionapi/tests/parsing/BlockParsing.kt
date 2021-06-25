@@ -4,6 +4,8 @@ import net.adriantodt.notionapi.impl.model.BlockImpl
 import net.adriantodt.notionapi.model.block.*
 import net.adriantodt.notionapi.model.richtext.Text
 import net.adriantodt.notionapi.tests.base.ModelTests
+import net.adriantodt.notionapi.tests.base.assertBlock
+import net.adriantodt.notionapi.tests.base.assertPlainText
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.fail
@@ -200,7 +202,7 @@ class BlockParsing {
     }
 
     private companion object : ModelTests() {
-        object Block1 : Snippet("/snippets/block/unit/1.json"), BlockDeclaration {
+        object Block1 : Snippet("/input/block/unit/1.json"), BlockDeclaration {
             override val id = "1d7dd368-abf4-4b21-9eb9-a67a59d0bf40"
             override val createdTime = "2021-06-25T13:15:53.207Z"
             override val lastEditedTime = "2021-06-25T13:16:00.000Z"
@@ -209,7 +211,7 @@ class BlockParsing {
             const val text = "Heading 1"
         }
 
-        object Block2 : Snippet("/snippets/block/unit/2.json"), BlockDeclaration {
+        object Block2 : Snippet("/input/block/unit/2.json"), BlockDeclaration {
             override val id = "73445189-2846-4800-9fa3-cac1a69d6fda"
             override val createdTime = "2021-06-25T13:16:05.682Z"
             override val lastEditedTime = "2021-06-25T13:16:00.000Z"
@@ -218,7 +220,7 @@ class BlockParsing {
             const val text = "Heading 2"
         }
 
-        object Block3 : Snippet("/snippets/block/unit/3.json"), BlockDeclaration {
+        object Block3 : Snippet("/input/block/unit/3.json"), BlockDeclaration {
             override val id = "ff7b5804-7115-4286-87da-d2e3e4954bef"
             override val createdTime = "2021-06-25T13:16:10.556Z"
             override val lastEditedTime = "2021-06-25T13:16:00.000Z"
@@ -227,7 +229,7 @@ class BlockParsing {
             const val text = "Heading 3"
         }
 
-        object Block4 : Snippet("/snippets/block/unit/4.json"), BlockDeclaration {
+        object Block4 : Snippet("/input/block/unit/4.json"), BlockDeclaration {
             override val id = "aa058d6b-b6e0-4412-b061-cf78ba1dd227"
             override val createdTime = "2021-06-25T13:16:00.000Z"
             override val lastEditedTime = "2021-06-25T13:20:00.000Z"
@@ -236,7 +238,7 @@ class BlockParsing {
             const val text = "Paragraph"
         }
 
-        object Block5 : Snippet("/snippets/block/unit/5.json"), BlockDeclaration {
+        object Block5 : Snippet("/input/block/unit/5.json"), BlockDeclaration {
             override val id = "e38046ba-f705-464f-9934-f321f272f462"
             override val createdTime = "2021-06-25T13:16:27.242Z"
             override val lastEditedTime = "2021-06-25T13:16:00.000Z"
@@ -245,7 +247,7 @@ class BlockParsing {
             const val text = "Checked To-do"
         }
 
-        object Block6 : Snippet("/snippets/block/unit/6.json"), BlockDeclaration {
+        object Block6 : Snippet("/input/block/unit/6.json"), BlockDeclaration {
             override val id = "b093d630-2ea9-4cd5-a411-451756650096"
             override val createdTime = "2021-06-25T13:16:00.000Z"
             override val lastEditedTime = "2021-06-25T13:16:00.000Z"
@@ -254,7 +256,7 @@ class BlockParsing {
             const val text = "Unchecked To-do"
         }
 
-        object Block7 : Snippet("/snippets/block/unit/7.json"), BlockDeclaration {
+        object Block7 : Snippet("/input/block/unit/7.json"), BlockDeclaration {
             override val id = "ce56a603-d72e-4f96-afd8-bf4f22c41e7e"
             override val createdTime = "2021-06-25T13:16:00.000Z"
             override val lastEditedTime = "2021-06-25T16:05:00.000Z"
@@ -263,7 +265,7 @@ class BlockParsing {
             const val text = "Checked To-do with children"
         }
 
-        object Block8 : Snippet("/snippets/block/unit/8.json"), BlockDeclaration {
+        object Block8 : Snippet("/input/block/unit/8.json"), BlockDeclaration {
             override val id = "306af577-cb59-496e-a746-20182e109f4d"
             override val createdTime = "2021-06-25T13:17:31.592Z"
             override val lastEditedTime = "2021-06-25T13:17:00.000Z"
@@ -272,7 +274,7 @@ class BlockParsing {
             const val text = "Unchecked To-do with children"
         }
 
-        object Block9 : Snippet("/snippets/block/unit/9.json"), BlockDeclaration {
+        object Block9 : Snippet("/input/block/unit/9.json"), BlockDeclaration {
             override val id = "f94ff0d6-174a-444a-a793-384e8a638f6a"
             override val createdTime = "2021-06-25T13:18:37.922Z"
             override val lastEditedTime = "2021-06-25T13:18:00.000Z"
@@ -281,7 +283,7 @@ class BlockParsing {
             const val text = "Bulleted item"
         }
 
-        object Block10 : Snippet("/snippets/block/unit/10.json"), BlockDeclaration {
+        object Block10 : Snippet("/input/block/unit/10.json"), BlockDeclaration {
             override val id = "f4a9a2f3-04de-4f7c-a7a4-225992f26e3f"
             override val createdTime = "2021-06-25T13:18:00.000Z"
             override val lastEditedTime = "2021-06-25T13:18:00.000Z"
@@ -290,7 +292,7 @@ class BlockParsing {
             const val text = "Bulleted item with children"
         }
 
-        object Block11 : Snippet("/snippets/block/unit/11.json"), BlockDeclaration {
+        object Block11 : Snippet("/input/block/unit/11.json"), BlockDeclaration {
             override val id = "fa25e84d-5e2f-42e4-873b-475cd4a77267"
             override val createdTime = "2021-06-25T13:18:51.613Z"
             override val lastEditedTime = "2021-06-25T13:18:00.000Z"
@@ -299,7 +301,7 @@ class BlockParsing {
             const val text = "Numbered item"
         }
 
-        object Block12 : Snippet("/snippets/block/unit/12.json"), BlockDeclaration {
+        object Block12 : Snippet("/input/block/unit/12.json"), BlockDeclaration {
             override val id = "5bacbcf6-7a73-483d-9ead-e11f2db9885d"
             override val createdTime = "2021-06-25T13:18:00.000Z"
             override val lastEditedTime = "2021-06-25T13:19:00.000Z"
@@ -308,7 +310,7 @@ class BlockParsing {
             const val text = "Numbered item with children"
         }
 
-        object Block13 : Snippet("/snippets/block/unit/13.json"), BlockDeclaration {
+        object Block13 : Snippet("/input/block/unit/13.json"), BlockDeclaration {
             override val id = "b6f1fb5f-6cf7-4b31-8d59-41e78e9b82c8"
             override val createdTime = "2021-06-25T13:19:08.085Z"
             override val lastEditedTime = "2021-06-25T13:19:00.000Z"
@@ -317,7 +319,7 @@ class BlockParsing {
             const val text = "Toggle block"
         }
 
-        object Block14 : Snippet("/snippets/block/unit/14.json"), BlockDeclaration {
+        object Block14 : Snippet("/input/block/unit/14.json"), BlockDeclaration {
             override val id = "2c522e66-9d48-4cf4-9d91-fc808cd8cb55"
             override val createdTime = "2021-06-25T13:19:00.000Z"
             override val lastEditedTime = "2021-06-25T13:19:00.000Z"
@@ -326,7 +328,7 @@ class BlockParsing {
             const val text = "Toggle block with children"
         }
 
-        object Block15 : Snippet("/snippets/block/unit/15.json"), BlockDeclaration {
+        object Block15 : Snippet("/input/block/unit/15.json"), BlockDeclaration {
             override val id = "397e4b83-3577-4a05-a036-36a598eae362"
             override val createdTime = "2021-06-25T13:19:46.031Z"
             override val lastEditedTime = "2021-06-25T13:19:00.000Z"
@@ -335,7 +337,7 @@ class BlockParsing {
             const val text = "Child page"
         }
 
-        object Block16 : Snippet("/snippets/block/unit/16.json"), BlockDeclaration {
+        object Block16 : Snippet("/input/block/unit/16.json"), BlockDeclaration {
             override val id = "87fbf8da-5543-4b54-86b2-53a3facbaa1b"
             override val createdTime = "2021-06-25T13:20:00.242Z"
             override val lastEditedTime = "2021-06-25T13:20:00.000Z"
@@ -343,7 +345,7 @@ class BlockParsing {
             override val hasChildren = false
         }
 
-        object Block17 : Snippet("/snippets/block/unit/17.json"), BlockDeclaration {
+        object Block17 : Snippet("/input/block/unit/17.json"), BlockDeclaration {
             override val id = "87fbf8da-5543-4b54-86b2-53a3facbaa1b"
             override val createdTime = "2021-06-25T13:20:00.242Z"
             override val lastEditedTime = "2021-06-25T13:20:00.000Z"

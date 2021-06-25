@@ -2,8 +2,10 @@ package net.adriantodt.notionapi.net.request.richtext
 
 import com.grack.nanojson.JsonObject
 import net.adriantodt.notionapi.model.Color
+import net.adriantodt.notionapi.net.request.annotation.NotionDsl
 import net.adriantodt.notionapi.utils.buildJsonObject
 
+@NotionDsl
 abstract class RichTextBuilder {
     // BELOW: Inlined annotations
 

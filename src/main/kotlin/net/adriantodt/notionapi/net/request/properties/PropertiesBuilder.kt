@@ -6,6 +6,7 @@ import net.adriantodt.notionapi.model.page.Page
 import net.adriantodt.notionapi.model.property.PropertyType
 import net.adriantodt.notionapi.model.property.SelectOption
 import net.adriantodt.notionapi.model.user.User
+import net.adriantodt.notionapi.net.request.annotation.NotionDsl
 import net.adriantodt.notionapi.net.request.richtext.RichTextListBuilder
 import net.adriantodt.notionapi.utils.Range
 import net.adriantodt.notionapi.utils.buildJsonObject
@@ -17,9 +18,11 @@ import java.time.OffsetDateTime
 import java.time.format.DateTimeFormatter.ISO_LOCAL_DATE
 import java.time.format.DateTimeFormatter.ISO_OFFSET_DATE_TIME
 
+@NotionDsl
 class PropertiesBuilder {
     internal val map = mutableMapOf<String, JsonObject>()
 
+    @NotionDsl
     fun title(property: String = "title", value: String) {
         title(property) { text { +value } }
     }
@@ -33,6 +36,7 @@ class PropertiesBuilder {
         richText(property) { text { +value } }
     }
 
+    @NotionDsl
     fun richText(property: String, block: RichTextListBuilder.() -> Unit) {
         val value = RichTextListBuilder().apply(block).toJson()
         put(property, PropertyType.RICH_TEXT, value)

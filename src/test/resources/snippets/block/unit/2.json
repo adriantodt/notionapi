@@ -1,0 +1,29 @@
+{
+    "object": "block",
+    "id": "73445189-2846-4800-9fa3-cac1a69d6fda",
+    "created_time": "2021-06-25T13:16:05.682Z",
+    "last_edited_time": "2021-06-25T13:16:00.000Z",
+    "has_children": false,
+    "type": "heading_2",
+    "heading_2": {
+        "text": [
+            {
+                "type": "text",
+                "text": {
+                    "content": "Heading 2",
+                    "link": null
+                },
+                "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                },
+                "plain_text": "Heading 2",
+                "href": null
+            }
+        ]
+    }
+}

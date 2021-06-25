@@ -1,0 +1,30 @@
+{
+    "object": "block",
+    "id": "b093d630-2ea9-4cd5-a411-451756650096",
+    "created_time": "2021-06-25T13:16:00.000Z",
+    "last_edited_time": "2021-06-25T13:16:00.000Z",
+    "has_children": false,
+    "type": "to_do",
+    "to_do": {
+        "text": [
+            {
+                "type": "text",
+                "text": {
+                    "content": "Unchecked To-do",
+                    "link": null
+                },
+                "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                },
+                "plain_text": "Unchecked To-do",
+                "href": null
+            }
+        ],
+        "checked": false
+    }
+}

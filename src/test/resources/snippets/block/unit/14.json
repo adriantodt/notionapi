@@ -1,0 +1,29 @@
+{
+    "object": "block",
+    "id": "2c522e66-9d48-4cf4-9d91-fc808cd8cb55",
+    "created_time": "2021-06-25T13:19:00.000Z",
+    "last_edited_time": "2021-06-25T13:19:00.000Z",
+    "has_children": true,
+    "type": "toggle",
+    "toggle": {
+        "text": [
+            {
+                "type": "text",
+                "text": {
+                    "content": "Toggle block with children",
+                    "link": null
+                },
+                "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                },
+                "plain_text": "Toggle block with children",
+                "href": null
+            }
+        ]
+    }
+}

@@ -7,17 +7,17 @@ interface Page : NotionObject {
     /**
      * Unique identifier for the page.
      */
-    val id: String
+    override val id: String
 
     /**
      * Date and time when this page was created.
      */
-    val createdTime: OffsetDateTime
+    override val createdTime: OffsetDateTime
 
     /**
      * Date and time when this page was last updated.
      */
-    val lastEditedTime: OffsetDateTime
+    override val lastEditedTime: OffsetDateTime
 
     /**
      * The archived status of the page.

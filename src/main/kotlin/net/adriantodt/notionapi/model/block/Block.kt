@@ -7,7 +7,7 @@ interface Block : NotionObject {
     /**
      * Unique identifier for the block.
      */
-    val id: String
+    override val id: String
 
     /**
      * Type of block.
@@ -17,12 +17,12 @@ interface Block : NotionObject {
     /**
      * Date and time when this block was created.
      */
-    val createdTime: OffsetDateTime
+    override val createdTime: OffsetDateTime
 
     /**
      * Date and time when this block was last updated.
      */
-    val lastEditedTime: OffsetDateTime
+    override val lastEditedTime: OffsetDateTime
 
     /**
      * Whether or not the block has children blocks nested within it.

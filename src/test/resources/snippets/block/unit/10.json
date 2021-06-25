@@ -1,0 +1,29 @@
+{
+    "object": "block",
+    "id": "f4a9a2f3-04de-4f7c-a7a4-225992f26e3f",
+    "created_time": "2021-06-25T13:18:00.000Z",
+    "last_edited_time": "2021-06-25T13:18:00.000Z",
+    "has_children": true,
+    "type": "bulleted_list_item",
+    "bulleted_list_item": {
+        "text": [
+            {
+                "type": "text",
+                "text": {
+                    "content": "Bulleted item with children",
+                    "link": null
+                },
+                "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                },
+                "plain_text": "Bulleted item with children",
+                "href": null
+            }
+        ]
+    }
+}

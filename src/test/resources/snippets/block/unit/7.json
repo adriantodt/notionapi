@@ -1,0 +1,30 @@
+{
+    "object": "block",
+    "id": "ce56a603-d72e-4f96-afd8-bf4f22c41e7e",
+    "created_time": "2021-06-25T13:16:00.000Z",
+    "last_edited_time": "2021-06-25T16:05:00.000Z",
+    "has_children": true,
+    "type": "to_do",
+    "to_do": {
+        "text": [
+            {
+                "type": "text",
+                "text": {
+                    "content": "Checked To-do with children",
+                    "link": null
+                },
+                "annotations": {
+                    "bold": false,
+                    "italic": false,
+                    "strikethrough": false,
+                    "underline": false,
+                    "code": false,
+                    "color": "default"
+                },
+                "plain_text": "Checked To-do with children",
+                "href": null
+            }
+        ],
+        "checked": true
+    }
+}

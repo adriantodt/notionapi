@@ -1,0 +1,36 @@
+{
+    "object": "page",
+    "id": "b58db8ca-35a4-40c2-83f7-e53ee672f3bf",
+    "created_time": "2021-06-25T00:19:00.000Z",
+    "last_edited_time": "2021-06-25T00:39:00.000Z",
+    "parent": {
+        "type": "page_id",
+        "page_id": "ba62fc19-01e4-425d-bcf7-2545050e6b36"
+    },
+    "archived": false,
+    "properties": {
+        "title": {
+            "id": "title",
+            "type": "title",
+            "title": [
+                {
+                    "type": "text",
+                    "text": {
+                        "content": "Example Page",
+                        "link": null
+                    },
+                    "annotations": {
+                        "bold": false,
+                        "italic": false,
+                        "strikethrough": false,
+                        "underline": false,
+                        "code": false,
+                        "color": "default"
+                    },
+                    "plain_text": "Example Page",
+                    "href": null
+                }
+            ]
+        }
+    }
+}

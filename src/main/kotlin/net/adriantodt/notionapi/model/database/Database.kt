@@ -14,17 +14,17 @@ interface Database : NotionObject {
     /**
      * Unique identifier for the database.
      */
-    val id: String
+    override val id: String
 
     /**
      * Date and time when this database was created.
      */
-    val createdTime: OffsetDateTime
+    override val createdTime: OffsetDateTime
 
     /**
      * Date and time when this database was updated.
      */
-    val lastEditedTime: OffsetDateTime
+    override val lastEditedTime: OffsetDateTime
 
     /**
      * Name of the database as it appears in Notion.

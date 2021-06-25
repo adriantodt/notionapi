@@ -49,9 +49,19 @@ data class BlockImpl(
         override val lastEditedTime: OffsetDateTime,
         override val hasChildren: Boolean,
         override val text: List<RichText>,
-        override val children: List<Block>,
         override val checked: Boolean
     ) : ToDoBlock
+
+    data class ToDoBlockWithChildrenImpl(
+        override val id: String,
+        override val type: BlockType,
+        override val createdTime: OffsetDateTime,
+        override val lastEditedTime: OffsetDateTime,
+        override val hasChildren: Boolean,
+        override val text: List<RichText>,
+        override val children: List<Block>,
+        override val checked: Boolean
+    ) : ToDoBlock, TextBlockWithChildren
 
     companion object {
         fun fromResponse(raw: Any?): Block {
@@ -78,36 +88,63 @@ data class BlockImpl(
             return when (type) {
                 BlockType.HEADING_1,
                 BlockType.HEADING_2,
-                BlockType.HEADING_3 -> TextBlockImpl(
-                    id, type, createdTime, lastEditedTime, hasChildren,
-                    RichTextImpl.fromJsonArray(obj.getObject(type.value).getArray("text", jsonArrayOf()))
-                )
+                BlockType.HEADING_3,
                 BlockType.PARAGRAPH,
                 BlockType.BULLETED_LIST_ITEM,
                 BlockType.NUMBERED_LIST_ITEM,
-                BlockType.TOGGLE -> {
-                    val subObj = obj.getObject(type.value)
-                    TextBlockWithChildrenImpl(
-                        id, type, createdTime, lastEditedTime, hasChildren,
-                        RichTextImpl.fromJsonArray(subObj.getArray("text", jsonArrayOf())),
-                        fromJsonArray(subObj.getArray("children", jsonArrayOf()))
-                    )
-                }
-                BlockType.TO_DO -> {
-                    val subObj = obj.getObject(type.value)
-                    ToDoBlockImpl(
-                        id, type, createdTime, lastEditedTime, hasChildren,
-                        RichTextImpl.fromJsonArray(subObj.getArray("text", jsonArrayOf())),
-                        fromJsonArray(subObj.getArray("children", jsonArrayOf())),
-                        subObj.getBoolean("checked", false)
-                    )
-                }
+                BlockType.TOGGLE -> parseTextBlock(
+                    id,
+                    type,
+                    createdTime,
+                    lastEditedTime,
+                    hasChildren,
+                    obj.getObject(type.value)
+                )
+                BlockType.TO_DO -> parseToDoBlock(
+                    id,
+                    type,
+                    createdTime,
+                    lastEditedTime,
+                    hasChildren,
+                    obj.getObject(type.value)
+                )
                 BlockType.CHILD_PAGE -> ChildPageBlockImpl(
                     id, type, createdTime, lastEditedTime, hasChildren,
                     obj.getObject(type.value).getString("title")
                 )
                 BlockType.UNSUPPORTED -> BlockImpl(id, type, createdTime, lastEditedTime, hasChildren)
             }
+        }
+
+        private fun parseTextBlock(
+            id: String, type: BlockType, createdTime: OffsetDateTime, lastEditedTime: OffsetDateTime,
+            hasChildren: Boolean, subObj: JsonObject
+        ): TextBlock {
+            val text = RichTextImpl.fromJsonArray(subObj.getArray("text", jsonArrayOf()))
+            val children = subObj.getArray("children")
+
+            if (children.isNullOrEmpty()) {
+                return TextBlockImpl(id, type, createdTime, lastEditedTime, hasChildren, text)
+            }
+            return TextBlockWithChildrenImpl(
+                id, type, createdTime, lastEditedTime, hasChildren, text, fromJsonArray(children)
+            )
+        }
+
+        private fun parseToDoBlock(
+            id: String, type: BlockType, createdTime: OffsetDateTime, lastEditedTime: OffsetDateTime,
+            hasChildren: Boolean, subObj: JsonObject
+        ): TextBlock {
+            val text = RichTextImpl.fromJsonArray(subObj.getArray("text", jsonArrayOf()))
+            val checked = subObj.getBoolean("checked", false)
+            val children = subObj.getArray("children")
+
+            if (children.isNullOrEmpty()) {
+                return ToDoBlockImpl(id, type, createdTime, lastEditedTime, hasChildren, text, checked)
+            }
+            return ToDoBlockWithChildrenImpl(
+                id, type, createdTime, lastEditedTime, hasChildren, text, fromJsonArray(children), checked
+            )
         }
     }
 }

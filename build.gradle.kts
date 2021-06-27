@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "net.adriantodt.notionapi"
-version = "0.1"
+version = "0.1.0"
 
 repositories {
     mavenCentral()

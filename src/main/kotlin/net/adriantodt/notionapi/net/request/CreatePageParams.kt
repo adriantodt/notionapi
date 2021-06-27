@@ -41,14 +41,12 @@ class CreatePageParams {
     }
 
     internal fun toJson() = buildJsonObject {
-        parent?.let {
-            val pair = when (it) {
-                is PageParent.Database -> "database_id" to it.id
-                is PageParent.Page -> "page_id" to it.id
-                PageParent.Workspace -> throw AssertionError("Workspace page parent is not supported.")
-            }
-            put("parent", jsonObjectOf(pair))
-        } ?: throw IllegalStateException("parent is a required parameter")
+        val pair = when (val it = parent) {
+            is PageParent.Database -> "database_id" to it.id
+            is PageParent.Page -> "page_id" to it.id
+            else -> throw AssertionError("Workspace page parent is not supported.")
+        }
+        put("parent", jsonObjectOf(pair))
 
         put("properties", properties.toJson())
 

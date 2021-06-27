@@ -1,12 +1,12 @@
 package net.adriantodt.notionapi.model.database.property
 
 import net.adriantodt.notionapi.utils.JsonEnum
+import net.adriantodt.notionapi.utils.lowercaseOfName
 
-enum class NumberFormat(override val value: String?) : JsonEnum {
-    NUMBER("number"), NUMBER_WITH_COMMAS("number_with_commas"),
-    PERCENT("percent"), DOLLAR("dollar"), EURO("euro"),
-    POUND("pound"), YEN("yen"), RUBLE("ruble"),
-    RUPEE("rupee"), WON("won"), YUAN("yuan"), UNKNOWN(null);
+enum class NumberFormat : JsonEnum {
+    NUMBER, NUMBER_WITH_COMMAS, PERCENT, DOLLAR, EURO, POUND, YEN, RUBLE, RUPEE, WON, YUAN;
 
-    companion object : JsonEnum.Companion<NumberFormat>(::values, { UNKNOWN })
+    override val value by lowercaseOfName()
+
+    companion object : JsonEnum.Companion<NumberFormat>(::values)
 }

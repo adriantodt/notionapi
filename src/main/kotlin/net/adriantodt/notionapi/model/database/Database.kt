@@ -9,6 +9,8 @@ import java.time.OffsetDateTime
  * Database objects describe the property schema of a database in Notion.
  * Pages are the items (or children) in a database.
  * Page property values must conform to the property objects laid out in the parent database object.
+ *
+ * [Notion API Page about this entity](https://developers.notion.com/reference/database).
  */
 interface Database : NotionObject {
     /**

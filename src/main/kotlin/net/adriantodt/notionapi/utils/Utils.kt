@@ -49,3 +49,7 @@ operator fun <T> Cursor<T>.iterator(): Iterator<T> {
         .flatMap { it.results }
         .iterator()
 }
+
+internal inline fun <reified T : Enum<T>> T.lowercaseOfName(): Lazy<String> {
+    return lazy { this.name.lowercase() }
+}

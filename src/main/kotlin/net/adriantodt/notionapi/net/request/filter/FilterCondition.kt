@@ -3,6 +3,7 @@ package net.adriantodt.notionapi.net.request.filter
 import net.adriantodt.notionapi.net.request.filter.FilterCondition.FilterType.*
 import net.adriantodt.notionapi.utils.JsonEnum
 import net.adriantodt.notionapi.utils.jsonObjectOf
+import net.adriantodt.notionapi.utils.lowercaseOfName
 
 enum class FilterCondition(vararg types: FilterType) : JsonEnum {
     EQUALS(TEXT, NUMBER, TRUE, FALSE),
@@ -38,7 +39,7 @@ enum class FilterCondition(vararg types: FilterType) : JsonEnum {
 
     fun validate(value: Any) = acceptedValues.any { it.predicate(value) }
 
-    override val value: String by lazy { name.lowercase() }
+    override val value by lowercaseOfName()
     companion object : JsonEnum.Companion<FilterCondition>(::values) {
         inline fun <reified T> instanceOf(): (Any) -> Boolean = { it is T }
     }

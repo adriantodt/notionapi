@@ -2,6 +2,12 @@ package net.adriantodt.notionapi.model.richtext
 
 import net.adriantodt.notionapi.model.Color
 
+/**
+ * Rich text objects contain data for displaying formatted text, mentions, and equations.
+ * A rich text object also contains annotations for style information.
+ *
+ * [Notion API Page about this entity](https://developers.notion.com/reference/rich-text).
+ */
 interface RichText {
     /**
      * The plain text without annotations.

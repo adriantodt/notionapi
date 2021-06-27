@@ -1,13 +1,15 @@
 package net.adriantodt.notionapi.model.richtext
 
 import net.adriantodt.notionapi.utils.JsonEnum
+import net.adriantodt.notionapi.utils.lowercaseOfName
 
-enum class RichTextType(override val value: String?) : JsonEnum {
-    TEXT("text"),
-    MENTION("mention"),
-    EQUATION("equation"),
-    UNKNOWN(null);
+enum class RichTextType : JsonEnum {
+    TEXT,
+    MENTION,
+    EQUATION;
 
-    companion object : JsonEnum.Companion<RichTextType>(::values, { UNKNOWN })
+    override val value by lowercaseOfName()
+
+    companion object : JsonEnum.Companion<RichTextType>(::values)
 }
 

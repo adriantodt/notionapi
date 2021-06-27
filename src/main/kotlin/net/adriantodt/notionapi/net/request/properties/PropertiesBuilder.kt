@@ -22,8 +22,14 @@ import java.time.format.DateTimeFormatter.ISO_OFFSET_DATE_TIME
 class PropertiesBuilder {
     internal val map = mutableMapOf<String, JsonObject>()
 
+
     @NotionDsl
-    fun title(property: String = "title", value: String) {
+    fun title(value: String) {
+        title("title", value)
+    }
+
+    @NotionDsl
+    fun title(property: String, value: String) {
         title(property) { text { +value } }
     }
 

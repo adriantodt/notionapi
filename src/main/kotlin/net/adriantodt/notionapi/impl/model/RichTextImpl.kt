@@ -174,9 +174,6 @@ data class RichTextImpl(
                     plainText, href, type, bold, italic, strikethrough, underline, code, color, backgroundColor,
                     obj.getObject(type.value).getString("expression")
                 )
-                RichTextType.UNKNOWN -> RichTextImpl(
-                    plainText, href, type, bold, italic, strikethrough, underline, code, color, backgroundColor
-                )
             }
         }
 

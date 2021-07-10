@@ -85,7 +85,6 @@ data class PropertyValueImpl(
                 LAST_EDITED_TIME -> parseDateValue(type, obj.getString(type.value))
                 CREATED_BY,
                 LAST_EDITED_BY -> UserValue(type, UserImpl.fromJsonObject(obj.getObject(type.value)))
-                UNKNOWN -> throw IllegalArgumentException("Unknown type '${obj.getString("type")}'")
             }
         }
 

@@ -83,7 +83,7 @@ abstract class RichTextBuilder {
         if (backgroundColor != Color.DEFAULT) {
             annotations += "color" to "${backgroundColor.value}_background"
         } else if (color != Color.DEFAULT) {
-            annotations += "color" to color.value!!
+            annotations += "color" to color.value
         }
 
         if (annotations.isEmpty()) {

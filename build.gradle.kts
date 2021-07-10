@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.5.10"
+    id("maven-publish")
 }
 
 group = "net.adriantodt.notionapi"
@@ -24,4 +25,21 @@ tasks.test {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "11"
+}
+
+publishing {
+    publications.create<MavenPublication>("release") {
+        from(components["kotlin"])
+    }
+    repositories {
+        maven {
+            url = uri("https://maven.cafeteria.dev/releases")
+            credentials {
+                username = project.property("mcdUsername").toString()
+                password = project.property("mcdPassword").toString()
+            }
+            authentication.create<BasicAuthentication>("basic")
+        }
+        mavenLocal()
+    }
 }
